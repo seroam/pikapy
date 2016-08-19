@@ -69,7 +69,12 @@ def entry():
             accept_tos(account_info["username"], account_info["password"])
             # Append usernames 
             with open("usernames.txt", "a") as ulist:
-                ulist.write(account_info["username"]+":"+account_info["password"]+"\n")
+
+                """Original code"""
+                """ulist.write(account_info["username"]+":"+account_info["password"]+"\n")"""
+                
+                """To put in config.ini"""
+                ulist.write(", "+account_info["username"])
                 ulist.close()
         # Handle account creation failure exceptions
         except PTCInvalidPasswordException as err:
